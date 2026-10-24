@@ -1,127 +1,135 @@
-Y™Áäx≥¨uÁ%j∑ù¬+arâÏ∂ÎïÎ_¢∫ﬁjÀ"ÇvõïÎ⁄Æ&õïÎ
+(() => {
+  "use strict";
+  const media = document.getElementById("cora-audio-media");
+  if (!media) return;
+  const root = document.getElementById("cora-audio-tour");
+  const time = document.getElementById("cora-audio-time");
+  const seek = document.getElementById("cora-audio-seek");
+  const toggle = document.getElementById("cora-audio-toggle");
+  const icon = document.getElementById("cora-audio-icon");
+  const status = document.getElementById("cora-audio-status");
+  const excerpt = document.getElementById("cora-audio-excerpt");
+  const transcript = document.getElementById("cora-audio-transcript");
+  const download = document.getElementById("cora-audio-download");
+  const languageButtons = [...root.querySelectorAll("[data-cora-lang]")];
 
+  // Tracks are locally bundled MP3 files: no API key, sign-in or network needed.
+  const tracks = {
+    en: {
+      src: "audio/cora-story-en.mp3", name: "English",
+      excerpt: "‚ÄúHear how Xuan Phu's corn harvest is transformed into handmade memories, one creation at a time.‚Äù",
+      transcript: `Welcome to CORNESS, a place where the harvest becomes a story. In Xuan Phu, Dong Nai, every corn harvest leaves behind a material that is often overlooked: the corn cob. What seems like the end of its journey can become the beginning of something beautiful.
 
-HOà¬àù\ŸH›öX›é¬à€€ú›YYXHHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À[YYXHäN¬àYà
-[YYXJHô]\õé¬à€€ú›õ€›Hÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À]›\àäN¬à€€ú›[YHHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À][YHäN¬à€€ú›ŸYZ»Hÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À\ŸYZ»äN¬à€€ú›ŸŸ€HHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À]ŸŸ€HäN¬à€€ú›X€€àHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[ÀZX€€àäN¬à€€ú››]\»Hÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À\›]\»äN¬à€€ú›^Ÿ\úHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[ÀY^Ÿ\úäN¬à€€ú›ò[úÿ‹ö\Hÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[À]ò[úÿ‹ö\äN¬à€€ú››€õÿYHÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[ÀY›€õÿYäN¬à€€ú›[ô›XYŸPù]€ú»HÀããúõ€›ú]Y\ûTŸ[X›‹ê[
-ñŸ]KX€‹òK[[ô◊HäWN¬ÇàÀ»òX⁄‹»\ôHÿÿ[Hù[ôYT»ö[\Œàõ»THŸ^K⁄Y€ãZ[à‹àô]€‹ö»ôYYYÇà€€ú›òX⁄‹»H¬à[éà¬à‹òŒàò]Y[Àÿ€‹òK\›‹ûKY[ãõ\»ãò[YNàë[ô€\⁄ãà^Ÿ\úà∏†'X\à›»X[àI‹»€‹õà\ùô\›\»ò[úŸõ‹õYY[ù»[ôXYHY[[‹öY\À€ôH‹ôX][€à]H[YK∏†'Hãàò[úÿ‹ö\àŸ[€€YH»”‘ìëT‘ÀHXŸH⁄\ôHH\ùô\›ôX€€Y\»H›‹ûKà[àX[àK€ô»òZK]ô\ûH€‹õà\ùô\›X]ô\»ôZ[ôHX]\öX[]\»Ÿù[à›ô\õ€⁄ŸYàH€‹õà€ÿãà⁄]ŸY[\»ZŸHH[ôŸà]»õ›\õô^Hÿ[àôX€€YHHôY⁄[õö[ô»Ÿà€€Y][ô»ôX]]Yù[ÇÇí[àH€‹ö‹⁄‹ÿÿ[\ù\ÿ[ú»€€X›€X[ãûK[ôÿ\ôYù[HõÿŸ\‹»\ŸHò]\ò[öXô\úÀà[ô\à⁄⁄[Y[ôÀ^H\ôHò[úŸõ‹õYY[ù»H€X[\›[ô»ŸY\ÿZŸKàH€ÿ\›\àX^H€⁄»⁄[\Kù]]»^\ôH€»Hÿ\õ]ŸàHöY[ÀH]Y[òŸHŸàHXZŸ\úÀ[ôHY[[‹ûHŸàHXŸKÇÇïŸ^KZ[ö	‹»[ôXYH€ÿ\›\àÿ\úöY\»H]\õà[ú‹\ôYûHöY]ò[Y\ŸH\ö]YŸKàXX⁄[ôHôXÿ[»H€€‹ú»ŸàòY][€ò[‹òYù⁄[HH[ô‹ò]ôYY[ù]H€€õôX›»HYXŸH»X[àH[ô]»‹ôX]‹ãà]»ò[YH\»õ›€õH[à⁄][›Hÿ[àŸYKù][€»[àH[YH[ôÿ\ôHôZ[ô]ÇÇï[ö»[›Hõ‹àôZ[ô»\ùŸà\»›‹ûKàûH⁄€‹⁄[ô»»⁄]ôHY‹öX›[\ò[X]\öX[»HŸX€€ôYôKŸHŸ[Xúò]Hÿÿ[‹ôX]]ö]H[ôH[‹ôH›Y⁄ù[ÿ^H»XZŸH[ô[öõﬁHôX]]Yù[ÿöôX›ÀàZŸH\»Y[[‹ûH€YK[ô]]Xÿ€€\[ûH[›\àô^]ZY]›\ŸàXKòàKàöNà¬à‹òŒàò]Y[Àÿ€‹òK\›‹ûK]öKõ\»ãò[YNàïöY]ò[Y\ŸHãà^Ÿ\úà∏†'\›[à»H›‹ûHŸàX[àI‹»€‹õà\ùô\›[ôH\ö]YŸHY[[‹öY\»‹ôX]YûHÿÿ[\ù\ÿ[úÀ∏†'Hãàò[úÿ‹ö\à⁄0Ë»xnÍ€ô»∏n®[à1$xnØ€à∏nÊ⁄H”‘ìëT‘À±®ZHpÓXHH¯n®X⁄∏nÁ»0ËöxnÊ]ËùH⁄^xn·€ãà8n®ZHpËõà0Óã1$8n‰€ô»òZKÿ]HxnÂ⁄H∏nÈHôÌôÒ¨8nÁZH∞Ìô»0ËõàÏõà8n®ZHö8nÎ€ô»⁄xnØÿ»0ÌZH1¨8nÁ[ô»∏n‚»[H0Ë8nØ»8n™[Kàö1¨ô»1$Zxn‡]H1¨8nÁ€ô»ö1¨1$pË»¯nØ›0Óò»8n®ZHÏ»8n‡»xnÁ»òHxnÊ]0Ëö∞ÎöxnÊ⁄KÇÇïõ€ô»1¨8nÁ€ô»8nÈ»ÌôÀö8nÎ€ô»ôÒ¨8nÁZH8nË»1$xn‚ÿH1¨1®[ô»H€€K0ËH¯n®X⁄1®ZH⁄0Ì∞Ë8nÎH0ÔH1®H0ÌZHôÌxnÊ]ËX⁄¯n™[à8n´[ãà]XH1$pÌH∞Ëà^H⁄0Í[»0Í[À∏n´]xn·›HxnÊX»xn®X»8n©^H∏nÁ»0ËöxnÊ]pÏ€à]pË1¨Höxn·€H∏n‡[à1$xnÆ\à⁄xnØÿ»1$xnØ»0Ï›H^Hö8n„Àö1¨ô»1¨H⁄xnÎ»1®ZH8n©[H1$xn‰€ô»ùxnÊ[ôÀ¯nÏH⁄pÍõàö8n™€à¯nÈÿHôÒ¨8nÁZH8nË»∞ËÔH8nÍX»∏n‡H]pÍà1¨1®[ôÀÇÇí0ÌHò^K⁄xnØÿ»0Ï›H»Z[ö8nÏH^H0ËHX[ô»ÿH± €à8n©^H¯n®€H8nÍ[ô»8nÍ»H¯n®€àöxn·›ò[KàxnÂ⁄H1$q¨8nÁ[ô»∞Í]¯nË⁄H8n®ZHpËH¯n´ÿ»¯nÈÿHô⁄8n‡H8nÈ»Ìô»ù^xn‡[à8n‰[ôÀà8n©]H⁄8n´ÿ»∞Íõà¯n®€à8n™[HÏõà¯n‡»∏n‡H∞Ó[ô»1$xn©]pËõà0Óà∞ËôÒ¨8nÁZH8n®[»òH∞ÏÀà⁄pËH∏n‚»¯nÈÿHpÏ€à1$xn‰»⁄0Ìô»⁄8n‚H∏n¨[H8nÁ»∏nÆ»ô€ËKpËÏõà8nÁ»8nÁZH⁄X[à∞Ë¯nÏH⁄1 €H⁄0Óù0ÎXHÿ]KÇÇê¯n®€H1®[à∏n®[à1$pË»Ó[ô»”‘ìëT‘»öxnØ›xnØ‹ËùH⁄^xn·€à∞ËKà⁄Hò[»⁄»8nØ»8n™[H∞Ìô»ô⁄xn·‹xnÊ]›xnÊX»1$xnÁZHxnÊ⁄K⁄0Óõô»H1$X[ô»∞Ëõà∏n„[ô»¯nÍX»Ë[ô»8n®[»∏n®€à1$xn‚ÿH∞Ë8nÏXH⁄8n„[àËX⁄pÍùH0Ó[ô»Ï»∞ËX⁄öxn·€H1®[ãà0ËﬁHX[ô»ÔH8nÍX»8n©^H∏n‡Hö0Ë1$xn‡»∞Ï»1$xn‰€ô»0ËöÓ[ô»ö8nÎ€ô»0Óù⁄pËûH∞ÎöpÍõà∞Íõà0ËX⁄∞Ë¯nÈÿH∏n®[ãòàBàN¬à]Ÿ[X›Y[ô»Hô[àé¬à]\úõ‹îô\Ÿ[ùHò[ŸN¬à€€ú›õ‹õX][YHH
-ŸX€€ô HOà¬àYà
-Sù[Xô\ãö\—ö[ö]JŸX€€ô HŸX€€ô»
-Hô]\õàãKNãKHé¬à€€ú››[ŸX€€ô»HX]ôõ€‹äŸX€€ô N¬à€€ú›Z[ù]\»HX]ôõ€‹ä›[ŸX€€ô»»å
-N¬à€€ú›ŸX‹»H›ö[ô ›[ŸX€€ô»	Hå
-KúY›\ù
-ãåäN¬àô]\õà	‘›ö[ô Z[ù]\ KúY›\ù
-ãåä_Nâ‹ŸX‹ﬂX¬àN¬à€€ú›\—\ò][€àH
+In the workshop, local artisans collect, clean, dry, and carefully process these natural fibers. Under skilled hands, they are transformed into a small, lasting keepsake. A coaster may look simple, but its texture holds the warmth of the fields, the patience of the makers, and the memory of a place.
 
-HOàù[Xô\ãö\—ö[ö]JYYXKô\ò][€äH	âàYYXKô\ò][€àà¬à€€ú›Ÿ]›]\»H
-Xô[
-HOà»›]\Àù^€€ù[ùHXô[»N¬à€€ú›ôYúô\⁄H
+Today, Minh's handmade coaster carries a pattern inspired by Vietnamese heritage. Each line recalls the colors of traditional craft, while the engraved identity connects the piece to Xuan Phu and its creator. Its value is not only in what you can see, but also in the time and care behind it.
 
-HOà¬à[YKù^€€ù[ùH	Ÿõ‹õX][YJYYXKò›\úô[ù[YH
-_H»	⁄\—\ò][€ä
-H»õ‹õX][YJYYXKô\ò][€äHàãKNãKHüX¬à€€ú›úòX›[€àH\—\ò][€ä
-H»X]õX^
-X]õZ[äKYYXKò›\úô[ù[YH»YYXKô\ò][€äJHà¬à€€ú›ò[YHHX]úõ›[ô
-úòX›[€à
-àL
-N¬àŸYZÀùò[YHH›ö[ô ò[YJN¬àŸYZÀú›[KúŸ]õ‹\ùJãKX€‹òK\õŸ‹ô\‹»ã	ŸúòX›[€à
-àLIX
-N¬à€€ú›^Z[ô»H[YYXKú]\ŸY	âà[YYXKô[ôY¬àX€€ãù^€€ù[ùH^Z[ô»»ú]\ŸHààú^Wÿ\úõ›»é¬àŸŸ€KúŸ]]öXù]Jò\öXK[Xô[ã^Z[ô»»î]\ŸH]Y[»ààî^H]Y[»äN¬àŸŸ€Kù]HH^Z[ô»»î]\ŸH]Y[»ààî^H]Y[»é¬àN¬à€€ú›^HH
+Thank you for being part of this story. By choosing to give agricultural materials a second life, we celebrate local creativity and a more thoughtful way to make and enjoy beautiful objects. Take this memory home, and let it accompany your next quiet cup of tea.`
+    },
+    vi: {
+      src: "audio/cora-story-vi.mp3", name: "Vietnamese",
+      excerpt: "‚ÄúListen to the story of Xuan Phu's corn harvest and the heritage memories created by local artisans.‚Äù",
+      transcript: `Ch√†o m·ª´ng b·∫°n ƒë·∫øn v·ªõi CORNESS, n∆°i m√πa thu ho·∫°ch tr·ªü th√†nh m·ªôt c√¢u chuy·ªán. T·∫°i Xu√¢n Ph√∫, ƒê·ªìng Nai, sau m·ªói v·ª• ng√¥, ng∆∞·ªùi n√¥ng d√¢n c√≤n l·∫°i nh·ªØng chi·∫øc l√µi th∆∞·ªùng b·ªã xem l√† ph·∫ø ph·∫©m. Nh∆∞ng ƒëi·ªÅu t∆∞·ªüng nh∆∞ ƒë√£ k·∫øt th√∫c l·∫°i c√≥ th·ªÉ m·ªü ra m·ªôt h√†nh tr√¨nh m·ªõi.
 
-HOà¬à€€ú›òX⁄–]›\ùHŸ[X›Y[ôŒ¬à€€ú›ô\›[HYYXKú^J
-N¬àYà
-ô\›[	âà\[Ÿàô\›[òÿ]⁄OOHôù[ò›[€àäH¬àô\›[òÿ]⁄
+Trong x∆∞·ªüng th·ªß c√¥ng, nh·ªØng ng∆∞·ªùi th·ª£ ƒë·ªãa ph∆∞∆°ng thu gom, l√†m s·∫°ch, ph∆°i kh√¥ v√† x·ª≠ l√Ω x∆° l√µi ng√¥ m·ªôt c√°ch c·∫©n th·∫≠n. Qua ƒë√¥i b√†n tay kh√©o l√©o, v·∫≠t li·ªáu m·ªôc m·∫°c ·∫•y tr·ªü th√†nh m·ªôt m√≥n qu√† l∆∞u ni·ªám b·ªÅn ƒë·∫πp. Chi·∫øc ƒë·∫ø l√≥t ly tuy nh·ªè, nh∆∞ng l∆∞u gi·ªØ h∆°i ·∫•m ƒë·ªìng ru·ªông, s·ª± ki√™n nh·∫´n c·ªßa ng∆∞·ªùi th·ª£ v√† k√Ω ·ª©c v·ªÅ qu√™ h∆∞∆°ng.
 
-\úäHOà¬àÀ»›⁄]⁄[ô»òX⁄‹»[ù\úù\»[à[ãYõY⁄^J
-Hõ€Z\ŸHûH\⁄Y€ãÇàYà
-\úèÀõò[YHOOHêXõ‹ù\úõ‹ààòX⁄–]›\ùOOHŸ[X›Y[ô Hô]\õé¬àŸ]›]\ ï[òXõH»^Kà⁄X⁄»[›\àúõ›‹Ÿ\â‹»]Y[»Ÿ][ô‹»‹àHT»ö[\ÀàäN¬àJN¬àBàN¬àŸŸ€KòY]ô[ù\›[ô\äò€X⁄»ã
+H√¥m nay, chi·∫øc l√≥t ly do Minh t·ª± tay l√†m mang hoa vƒÉn l·∫•y c·∫£m h·ª©ng t·ª´ di s·∫£n Vi·ªát Nam. M·ªói ƒë∆∞·ªùng n√©t g·ª£i l·∫°i m√†u s·∫Øc c·ªßa ngh·ªÅ th·ªß c√¥ng truy·ªÅn th·ªëng. D·∫•u kh·∫Øc tr√™n s·∫£n ph·∫©m c√≤n k·ªÉ v·ªÅ v√πng ƒë·∫•t Xu√¢n Ph√∫ v√† ng∆∞·ªùi t·∫°o ra n√≥. Gi√° tr·ªã c·ªßa m√≥n ƒë·ªì kh√¥ng ch·ªâ n·∫±m ·ªü v·∫ª ngo√†i, m√† c√≤n ·ªü th·ªùi gian v√† s·ª± chƒÉm ch√∫t ph√≠a sau.
 
-HOà¬àYà
-YYXKú]\ŸYYYXKô[ôY
-H^J
-N¬à[ŸHYYXKú]\ŸJ
-N¬àJN¬àÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[ÀXòX⁄»äKòY]ô[ù\›[ô\äò€X⁄»ã
+C·∫£m ∆°n b·∫°n ƒë√£ c√πng CORNESS vi·∫øt ti·∫øp c√¢u chuy·ªán n√†y. Khi trao cho ph·∫ø ph·∫©m n√¥ng nghi·ªáp m·ªôt cu·ªôc ƒë·ªùi m·ªõi, ch√∫ng ta ƒëang tr√¢n tr·ªçng s·ª©c s√°ng t·∫°o b·∫£n ƒë·ªãa v√† l·ª±a ch·ªçn c√°ch ti√™u d√πng c√≥ tr√°ch nhi·ªám h∆°n. H√£y mang k√Ω ·ª©c ·∫•y v·ªÅ nh√†, ƒë·ªÉ n√≥ ƒë·ªìng h√†nh c√πng nh·ªØng ph√∫t gi√¢y b√¨nh y√™n b√™n t√°ch tr√† c·ªßa b·∫°n.`
+    }
+  };
+  let selectedLang = "en";
+  let errorPresent = false;
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return "--:--";
+    const totalSeconds = Math.floor(seconds);
+    const minutes = Math.floor(totalSeconds / 60);
+    const secs = String(totalSeconds % 60).padStart(2, "0");
+    return `${String(minutes).padStart(2, "0")}:${secs}`;
+  };
+  const hasDuration = () => Number.isFinite(media.duration) && media.duration > 0;
+  const setStatus = (label) => { status.textContent = label; };
+  const refresh = () => {
+    time.textContent = `${formatTime(media.currentTime || 0)} / ${hasDuration() ? formatTime(media.duration) : "--:--"}`;
+    const fraction = hasDuration() ? Math.max(0, Math.min(1, media.currentTime / media.duration)) : 0;
+    const value = Math.round(fraction * 1000);
+    seek.value = String(value);
+    seek.style.setProperty("--cora-progress", `${fraction * 100}%`);
+    const playing = !media.paused && !media.ended;
+    icon.textContent = playing ? "pause" : "play_arrow";
+    toggle.setAttribute("aria-label", playing ? "Pause audio" : "Play audio");
+    toggle.title = playing ? "Pause audio" : "Play audio";
+  };
+  const play = () => {
+    const trackAtStart = selectedLang;
+    const result = media.play();
+    if (result && typeof result.catch === "function") {
+      result.catch((err) => {
+        // Switching tracks interrupts an in-flight play() Promise by design.
+        if (err?.name === "AbortError" || trackAtStart !== selectedLang) return;
+        setStatus("Unable to play. Check your browser's audio settings or the MP3 files.");
+      });
+    }
+  };
+  toggle.addEventListener("click", () => {
+    if (media.paused || media.ended) play();
+    else media.pause();
+  });
+  document.getElementById("cora-audio-back").addEventListener("click", () => {
+    if (hasDuration()) media.currentTime = Math.max(0, media.currentTime - 10);
+    refresh();
+  });
+  document.getElementById("cora-audio-forward").addEventListener("click", () => {
+    if (hasDuration()) media.currentTime = Math.min(media.duration, media.currentTime + 10);
+    refresh();
+  });
+  seek.addEventListener("input", () => {
+    if (hasDuration()) media.currentTime = (Number(seek.value) / 1000) * media.duration;
+    refresh();
+  });
+  function chooseLanguage(lang) {
+    if (!tracks[lang] || lang === selectedLang) return;
 
-HOà¬àYà
-\—\ò][€ä
-JHYYXKò›\úô[ù[YHHX]õX^
-YYXKò›\úô[ù[YHHL
-N¬àôYúô\⁄
+    // A language change always stops playback and restarts at the beginning.
+    // Never preserve the old position or automatically play the new track.
+    media.pause();
+    media.currentTime = 0;
+    selectedLang = lang;
+    errorPresent = false;
+    media.src = tracks[lang].src;
+    media.load();
 
-N¬àJN¬àÿ›[Y[ùôŸ][[Y[ùûRY
-ò€‹òKX]Y[ÀYõ‹ùÿ\ôäKòY]ô[ù\›[ô\äò€X⁄»ã
-
-HOà¬àYà
-\—\ò][€ä
-JHYYXKò›\úô[ù[YHHX]õZ[äYYXKô\ò][€ãYYXKò›\úô[ù[YH
-»L
-N¬àôYúô\⁄
-
-N¬àJN¬àŸYZÀòY]ô[ù\›[ô\äö[ú]ã
-
-HOà¬àYà
-\—\ò][€ä
-JHYYXKò›\úô[ù[YHH
-ù[Xô\äŸYZÀùò[YJH»L
-H
-àYYXKô\ò][€é¬àôYúô\⁄
-
-N¬àJN¬àù[ò›[€à⁄€‹ŸS[ô›XYŸJ[ô H¬àYà
-]òX⁄‹÷€[ô◊H[ô»OOHŸ[X›Y[ô Hô]\õé¬ÇàÀ»H[ô›XYŸH⁄[ôŸH[ÿ^\»›‹»^XòX⁄»[ôô\›\ù»]HôY⁄[õö[ôÀÇàÀ»ô]ô\àô\Ÿ\ùôHH€‹⁄][€à‹à]]€X]Xÿ[H^HHô]»òX⁄ÀÇàYYXKú]\ŸJ
-N¬àYYXKò›\úô[ù[YHH¬àŸ[X›Y[ô»H[ôŒ¬à\úõ‹îô\Ÿ[ùHò[ŸN¬àYYXKú‹ò»HòX⁄‹÷€[ô◊Kú‹òŒ¬àYYXKõÿY
-
-N¬Çà^Ÿ\úù^€€ù[ùHòX⁄‹÷€[ô◊Kô^Ÿ\ú¬àò[úÿ‹ö\ù^€€ù[ùHòX⁄‹÷€[ô◊Kùò[úÿ‹ö\¬àò[úÿ‹ö\úŸ]]öXù]Jõ[ô»ã[ô N¬à›€õÿYöôYàHòX⁄‹÷€[ô◊Kú‹òŒ¬à›€õÿYô›€õÿYHòX⁄‹÷€[ô◊Kú‹òÀú‹]
-ã»äKú‹
-
-N¬à[ô›XYŸPù]€úÀôõ‹ëXX⁄
-ù]€àOà¬à€€ú›Ÿ[X›YHù]€ãô]\Ÿ]ò€‹òS[ô»OOH[ôŒ¬àù]€ãò€\‹”\›ùŸŸ€Jö\À\Ÿ[X›YãŸ[X›Y
-N¬àù]€ãúŸ]]öXù]Jò\öXK\ô\‹ŸYã›ö[ô Ÿ[X›Y
-JN¬àJN¬àŸ]›]\ ÿY[ô»	›òX⁄‹÷€[ô◊Kõò[Y_Hò\úò][€∏†)àô\‹»^H»\›[ãò
-N¬àôYúô\⁄
-
-N¬àBà[ô›XYŸPù]€úÀôõ‹ëXX⁄
-ù]€àOàù]€ãòY]ô[ù\›[ô\äò€X⁄»ã
-
-HOà⁄€‹ŸS[ô›XYŸJù]€ãô]\Ÿ]ò€‹òS[ô JJN¬àYYXKòY]ô[ù\›[ô\äõÿYYY]Y]Hã
-
-HOà¬à\úõ‹îô\Ÿ[ùHò[ŸN¬àŸ]›]\ 	›òX⁄‹÷‹Ÿ[X›Y[ô◊Kõò[Y_Hò\úò][€àôXYH0≠»ô\‹»^H»\›[ò
-N¬àôYúô\⁄
-
-N¬àJN¬àYYXKòY]ô[ù\›[ô\äù[Y]\]HãôYúô\⁄
-N¬àYYXKòY]ô[ù\›[ô\äô\ò][€ò⁄[ôŸHãôYúô\⁄
-N¬àYYXKòY]ô[ù\›[ô\äú^Hã
-
-HOà»Ÿ]›]\ ^Z[ô»0≠»	›òX⁄‹÷‹Ÿ[X›Y[ô◊Kõò[Y_Hò\úò][€ò
-N»ôYúô\⁄
-
-N»JN¬àYYXKòY]ô[ù\›[ô\äú]\ŸHã
-
-HOà»Yà
-[YYXKô[ôY	âàY\úõ‹îô\Ÿ[ù
-HŸ]›]\ ]\ŸY0≠»	›òX⁄‹÷‹Ÿ[X›Y[ô◊Kõò[Y_Hò\úò][€ò
-N»ôYúô\⁄
-
-N»JN¬àYYXKòY]ô[ù\›[ô\äô[ôYã
-
-HOà»Ÿ]›]\ 	›òX⁄‹÷‹Ÿ[X›Y[ô◊Kõò[Y_Hò\úò][€àö[ö\⁄Y
-N»ôYúô\⁄
-
-N»JN¬àYYXKòY]ô[ù\›[ô\äô\úõ‹àã
-
-HOà¬à\úõ‹îô\Ÿ[ùHùYN¬àŸ]›]\ ]Y[»[ò]òZ[XõKàŸY\H8†']Y[¯†'Hõ€\àô^»^K\õŸX›ö[ò
-N¬àôYúô\⁄
-
-N¬àJN¬àÀ»H[ö]X[ò[úÿ‹ö\]\›X]⁄H[ù\ôH‹⁄Ÿ[à[ô€\⁄ôX€‹ô[ôÀÇàò[úÿ‹ö\ù^€€ù[ùHòX⁄‹Àô[ãùò[úÿ‹ö\¬à⁄[ô›Àê€‹õô\‹–€‹òP]Y[»H»^K⁄€‹ŸS[ô›XYŸHN¬àôYúô\⁄
-
-N¬üJJ
-N¬
+    excerpt.textContent = tracks[lang].excerpt;
+    transcript.textContent = tracks[lang].transcript;
+    transcript.setAttribute("lang", lang);
+    download.href = tracks[lang].src;
+    download.download = tracks[lang].src.split("/").pop();
+    languageButtons.forEach(button => {
+      const selected = button.dataset.coraLang === lang;
+      button.classList.toggle("is-selected", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    setStatus(`Loading ${tracks[lang].name} narration‚Ä¶ Press Play to listen.`);
+    refresh();
+  }
+  languageButtons.forEach(button => button.addEventListener("click", () => chooseLanguage(button.dataset.coraLang)));
+  media.addEventListener("loadedmetadata", () => {
+    errorPresent = false;
+    setStatus(`${tracks[selectedLang].name} narration ready ¬∑ Press Play to listen`);
+    refresh();
+  });
+  media.addEventListener("timeupdate", refresh);
+  media.addEventListener("durationchange", refresh);
+  media.addEventListener("play", () => { setStatus(`Playing ¬∑ ${tracks[selectedLang].name} narration`); refresh(); });
+  media.addEventListener("pause", () => { if (!media.ended && !errorPresent) setStatus(`Paused ¬∑ ${tracks[selectedLang].name} narration`); refresh(); });
+  media.addEventListener("ended", () => { setStatus(`${tracks[selectedLang].name} narration finished`); refresh(); });
+  media.addEventListener("error", () => {
+    errorPresent = true;
+    setStatus(`Audio unavailable. Keep the ‚Äúaudio‚Äù folder next to my-product.html.`);
+    refresh();
+  });
+  // The initial transcript must match the entire spoken English recording.
+  transcript.textContent = tracks.en.transcript;
+  window.CornessCoraAudio = { play, chooseLanguage };
+  refresh();
+})();

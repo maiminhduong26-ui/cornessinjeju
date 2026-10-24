@@ -1,53 +1,64 @@
-YªçŠx³¬uç%j·Â+ar‰ì¶ë•ë_¢ºŞjË"‚v›•ëÚ®&›•ë
+(() => {
+  function initResponsiveNav() {
+    const menu = document.getElementById("corness-mobile-menu");
+    const toggle = document.querySelector(".corness-mobile-toggle");
+    if (!menu || !toggle) return;
 
+    const closeButtons = menu.querySelectorAll("[data-mobile-close]");
+    const links = menu.querySelectorAll("a[href]");
+    const current = (
+      location.pathname.split("/").pop() || "index.html"
+    ).toLowerCase();
 
-HOˆÂˆ[˜İ[Ûˆ[š]™\ÜÛœÚ]™S˜]Š
-HÂˆÛÛœİY[HHØİ[Y[™Ù][[Y[RY
-˜ÛÜ›™\ÜË[[Øš[K[Y[HŠNÂˆÛÛœİÙÙÛHHØİ[Y[œ]Y\TÙ[XİÜŠ‹˜ÛÜ›™\ÜË[[Øš[K]ÙÙÛHŠNÂˆYˆ
-[Y[H]ÙÙÛJH™]\›Â‚ˆÛÛœİÛÜÙP]ÛœÈHY[Kœ]Y\TÙ[XİÜ[
-–Ù]K[[Øš[KXÛÜÙWHŠNÂˆÛÛœİ[šÜÈHY[Kœ]Y\TÙ[XİÜ[
-˜VÚ™Y—HŠNÂˆÛÛœİİ\œ™[H
-ˆØØ][Û‹œ]˜[YKœÜ]
-‹ÈŠKœÜ
+    document
+      .querySelectorAll("header nav a[href], .corness-mobile-nav a[href]")
+      .forEach((a) => {
+        const href = (a.getAttribute("href") || "").split("#")[0].toLowerCase();
+        if (href === current) a.setAttribute("aria-current", "page");
+      });
 
-Hš[™^š[‚ˆ
-KÓİÙ\Ø\ÙJ
-NÂ‚ˆØİ[Y[ˆœ]Y\TÙ[XİÜ[
-šXY\ˆ˜]ˆVÚ™Y—K˜ÛÜ›™\ÜË[[Øš[K[˜]ˆVÚ™Y—HŠBˆ™›Ü‘XXÚ
+    const setOpen = (open) => {
+      menu.dataset.open = String(open);
+      menu.setAttribute("aria-hidden", String(!open));
+      toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("corness-menu-open", open);
+      const icon = toggle.querySelector(".material-symbols-outlined");
+      if (icon) icon.textContent = open ? "close" : "menu";
+      if (open) {
+        const first = menu.querySelector(".corness-mobile-nav a");
+        window.setTimeout(() => first?.focus({ preventScroll: true }), 120);
+      } else {
+        toggle.focus({ preventScroll: true });
+      }
+    };
 
-JHOˆÂˆÛÛœİ™YˆH
-K™Ù]]šX]Jš™YˆŠHˆŠKœÜ]
-ˆÈŠVÌKÓİÙ\Ø\ÙJ
-NÂˆYˆ
-™YˆOOHİ\œ™[
-HKœÙ]]šX]J˜\šXKXİ\œ™[‹œYÙHŠNÂˆJNÂ‚ˆÛÛœİÙ]Ü[ˆH
-Ü[ŠHOˆÂˆY[K™]\Ù]›Ü[ˆHİš[™ÊÜ[ŠNÂˆY[KœÙ]]šX]J˜\šXKZY[ˆ‹İš[™Ê[Ü[ŠJNÂˆÙÙÛKœÙ]]šX]J˜\šXKY^[™Y‹İš[™ÊÜ[ŠJNÂˆØİ[Y[˜›ÙK˜Û\ÜÓ\İÙÙÛJ˜ÛÜ›™\ÜË[Y[K[Ü[ˆ‹Ü[ŠNÂˆÛÛœİXÛÛˆHÙÙÛKœ]Y\TÙ[XİÜŠ‹›X]\šX[\Ş[X›ÛË[İ][™YŠNÂˆYˆ
-XÛÛŠHXÛÛ‹^ÛÛ[HÜ[ˆÈ˜ÛÜÙHˆˆ›Y[HÂˆYˆ
-Ü[ŠHÂˆÛÛœİš\œİHY[Kœ]Y\TÙ[XİÜŠ‹˜ÛÜ›™\ÜË[[Øš[K[˜]ˆHŠNÂˆÚ[™İËœÙ][Y[İ]
+    toggle.addEventListener("click", () =>
+      setOpen(menu.dataset.open !== "true"),
+    );
+    closeButtons.forEach((btn) =>
+      btn.addEventListener("click", () => setOpen(false)),
+    );
+    links.forEach((link) =>
+      link.addEventListener("click", () => setOpen(false)),
+    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.dataset.open === "true")
+        setOpen(false);
+    });
+    window.addEventListener(
+      "resize",
+      () => {
+        if (window.innerWidth >= 1536 && menu.dataset.open === "true") {
+          setOpen(false);
+        }
+      },
+      { passive: true },
+    );
+  }
 
-
-HOˆš\œİË™›Øİ\ÊÈ™]™[ØÜ›ÛˆYHJKLŒ
-NÂˆH[ÙHÂˆÙÙÛK™›Øİ\ÊÈ™]™[ØÜ›ÛˆYHJNÂˆBˆNÂ‚ˆÙÙÛK˜Y]™[\İ[™\Š˜ÛXÚÈ‹
-
-HO‚ˆÙ]Ü[ŠY[K™]\Ù]›Ü[ˆOOHYHŠKˆ
-NÂˆÛÜÙP]ÛœË™›Ü‘XXÚ
-
-ŠHO‚ˆ‹˜Y]™[\İ[™\Š˜ÛXÚÈ‹
-
-HOˆÙ]Ü[Š˜[ÙJJKˆ
-NÂˆ[šÜË™›Ü‘XXÚ
-
-[šÊHO‚ˆ[šË˜Y]™[\İ[™\Š˜ÛXÚÈ‹
-
-HOˆÙ]Ü[Š˜[ÙJJKˆ
-NÂˆØİ[Y[˜Y]™[\İ[™\ŠšÙ^YİÛˆ‹
-]™[
-HOˆÂˆYˆ
-]™[šÙ^HOOH‘\ØØ\Hˆ	‰ˆY[K™]\Ù]›Ü[ˆOOHYHŠBˆÙ]Ü[Š˜[ÙJNÂˆJNÂˆÚ[™İË˜Y]™[\İ[™\Šˆœ™\Ú^™H‹ˆ
-
-HOˆÂˆYˆ
-Ú[™İËš[›™\•ÚYHMLÍˆ	‰ˆY[K™]\Ù]›Ü[ˆOOHYHŠHÂˆÙ]Ü[Š˜[ÙJNÂˆBˆKˆÈ\ÜÚ]™NˆYHKˆ
-NÂˆB‚ˆYˆ
-Øİ[Y[œ™XYTİ]HOOH›ØY[™ÈŠHÂˆØİ[Y[˜Y]™[\İ[™\Š‘ÓPÛÛ[ØYY‹[š]™\ÜÛœÚ]™S˜]ŠNÂˆH[ÙHÂˆ[š]™\ÜÛœÚ]™S˜]Š
-NÂˆBŸJJ
-NÂ
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initResponsiveNav);
+  } else {
+    initResponsiveNav();
+  }
+})();

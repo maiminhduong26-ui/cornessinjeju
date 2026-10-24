@@ -1,119 +1,182 @@
-YªçŠx³¬uç%j·Â+ar‰ì¶ë•ë_¢ºŞjË"‚v›•ëÚ®&›•ëÊŠ‚ˆ
-ˆÓÔ“‘TÔÈH™X[[\˜Xİ]™HÛÛXİ[ÛˆØ\™Ë‚ˆ
-ˆØ\™İ™\ˆ™]™X[È[ˆXİ[ÛÈÛXÚÚ[™ÈÈ[\ˆÈÜXÙHÜ[œÈHÛÜšÚ[™È]Z[X[ÙË‚ˆ
-ˆHÛØ\İ\ˆ\Ù\ÈH^\İ[™ÈYÙIÜÈ[\˜Xİ]™HÑšY]Ù\‹‚ˆ
-ˆ›È˜XÚÙ[™˜ZÙH\˜Ú\ÙHXİ[Û‹Üˆ˜ZÙHÑ[Ù[\È[›ÙXÙY‚ˆ
-‹ÂŠ
+/**
+ * CORNESS - Real interactive collection cards.
+ * Card hover reveals an action; clicking / Enter / Space opens a working detail dialog.
+ * The coaster uses the existing page's interactive 3D viewer.
+ * No backend, fake purchase action, or fake 3D model is introduced.
+ */
+(() => {
+  'use strict';
+  const collection = document.getElementById('corness-heritage-collection');
+  if (!collection) return;
+  const cards = [...collection.querySelectorAll('[data-corness-artifact]')];
+  if (cards.length !== 3) return;
 
-HOˆÂˆ	İ\ÙHİšXİ	ÎÂˆÛÛœİÛÛXİ[ÛˆHØİ[Y[™Ù][[Y[RY
-	ØÛÜ›™\ÜËZ\š]YÙKXÛÛXİ[Û‰ÊNÂˆYˆ
-XÛÛXİ[ÛŠH™]\›ÂˆÛÛœİØ\™ÈHË‹‹˜ÛÛXİ[Û‹œ]Y\TÙ[XİÜ[
-	ÖÙ]KXÛÜ›™\ÜËX\Y˜XİIÊWNÂˆYˆ
-Ø\™Ë›[™İOOHÊH™]\›Â‚ˆÛÛœİ^˜HHÂˆÛØ\İ\ˆÂˆÜšYÚ[ˆ	ÖX[ˆKÛ™È˜ZIËˆX]\šX[ˆ	ÎˆÈÙˆ™XÛZ[YYÛÜ›ˆÛØœÉËˆ›ØÙ\ÜÎˆ	Ô™\ÜÙYÛÛ\ÜÚ]HÚ]\š]YÙKZ[œÜ\™Y[İYœÉËˆ›İNˆ	ÕH^\İ[™ÈÑ[Ù[Ûˆ\ÈYÙHØ[ˆ™H›İ]Y[™›\YÈ^Ü™HHÛØ\İ\ˆœ›ÛH›İÚY\Ë‰ËˆXİ[Û“X™[ˆ	Ñ^Ü™HÛØ\İ\ˆ[ˆÑ	ËXİ[Û•\Nˆ	ÌÙ	ÂˆKˆ›İ\›˜[ˆÂˆÜšYÚ[ˆ	ĞÓÔ“‘TÔÈÛÜšÜÚÜÌ‰ËˆX]\šX[ˆ	ÌLŒÈÙˆÛÜ›‹YšX™\ˆ\\‰Ëˆ›ØÙ\ÜÎˆ	Õ[˜›XXÚY\\ˆ[™[™\Ù]Ûˆ[\]™XYš[™[™ÉËˆ›İNˆ	Õ\È\˜Ú]™YÜ™X][Ûˆ\È\Ü^YY\È\ÙˆZ[š8 &\ÈÛÛXİ[Û‹ˆ^Ü™HHÛÜšÜÚÜÈÈX\›ˆ[Ü™HX›İ][™XYH\ŞXÛYÜ˜Y‰ËˆXİ[Û“X™[ˆ	Ñ^Ü™HÛÜšÜÚÜÉËXİ[Û’™Yˆ	Ù^\šY[˜ÙKš[	ÂˆKˆ[\ˆÂˆÜšYÚ[ˆ	Ó[Z]Y™\ÜÚÙHY][Û‰ËˆX]\šX[ˆ	Ó^Y\™YÛÜ›‹Z\ÚÈY[Xœ˜[™\ÉËˆ›ØÙ\ÜÎˆ	Ò[™[^Y\™Y˜[œÛXÙ[[\ÚYIËˆ›İNˆ	ÕHÛÛXİ[Ûˆİ\œ™[HÚİÜÈ\È[\\È[ˆ›ÙXİ[Ûˆ
-	JKˆ\È\ÈHØ]™YÛÛXİ[Ûˆİ]\Ë›İH]™H›ÙXİ[Ûˆ™YY‰ËˆXİ[Û“X™[ˆ	Ñ^Ü™HHÚÜ	ËXİ[Û’™Yˆ	ÜÚÜš[	ÂˆBˆNÂ‚ˆÛÛœİ˜XÚÙ›ÜHØİ[Y[˜Ü™X]Q[[Y[
-	Ù]‰ÊNÂˆ˜XÚÙ›ÜšYH	ØÛÜ›™\ÜËXÛÛXİ[Û‹[YÚ›Ş	ÎÂˆ˜XÚÙ›ÜšY[ˆHYNÂˆ˜XÚÙ›Üš[›™\’SHˆÙXİ[ÛˆÛ\ÜÏH˜ØËYX[ÙÈˆ›ÛOH™X[ÙÈˆ\šXK[[Ù[HYHˆ\šXK[X™[YOH˜ØËYX[ÙË]]Hˆ\šXKY\ØÜšX™YOH˜ØËYX[ÙËY\ØÜš\[Ûˆ‚ˆ]ÛˆÛ\ÜÏH˜ØËYX[ÙËXÛÜÙHˆ\OH˜]Ûˆˆ\šXK[X™[HÛÜÙH\Y˜Xİ]Z[Èˆ]OHÛÜÙH‚ˆÜ[ˆÛ\ÜÏH›X]\šX[\Ş[X›ÛË[İ][™Yˆ\šXKZY[HYH˜ÛÜÙOÜÜ[‚ˆØ]Û‚ˆ]ˆÛ\ÜÏH˜ØËYX[ÙË[YYXH[YÈYH˜ØËYX[ÙËZ[YÈˆ[HˆˆÏÙ]‚ˆ]ˆÛ\ÜÏH˜ØËYX[ÙËX›ÙH‚ˆÛ\ÜÏH˜ØËYX[ÙËY^YXœ›İÈˆYH˜ØËYX[ÙËZÚXÚÙ\ˆÜ‚ˆˆÛ\ÜÏH˜ØËYX[ÙË]]HˆYH˜ØËYX[ÙË]]HÚ‚ˆÛ\ÜÏH˜ØËYX[ÙËY\ØÜš\[ÛˆˆYH˜ØËYX[ÙËY\ØÜš\[ÛˆÜ‚ˆ]ˆÛ\ÜÏH˜ØËY˜XİÈ‚ˆ]ˆÛ\ÜÏH˜ØËY˜XİÜ[ˆÛ\ÜÏH˜ØËY˜Xİ[X™[\Y˜XİQÜÜ[Ü[ˆÛ\ÜÏH˜ØËY˜Xİ]˜[YHˆYH˜ØËYX[ÙËZYÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH˜ØËY˜XİÜ[ˆÛ\ÜÏH˜ØËY˜Xİ[X™[ÛÛXİ[Ûˆİ]\ÏÜÜ[Ü[ˆÛ\ÜÏH˜ØËY˜Xİ]˜[YHˆYH˜ØËYX[ÙË\İ]\ÈÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH˜ØËY˜XİÜ[ˆÛ\ÜÏH˜ØËY˜Xİ[X™[“X]\šX[ÜÜ[Ü[ˆÛ\ÜÏH˜ØËY˜Xİ]˜[YHˆYH˜ØËYX[ÙË[X]\šX[ÜÜ[Ù]‚ˆ]ˆÛ\ÜÏH˜ØËY˜XİÜ[ˆÛ\ÜÏH˜ØËY˜Xİ[X™[“ÜšYÚ[ˆÈY][ÛÜÜ[Ü[ˆÛ\ÜÏH˜ØËY˜Xİ]˜[YHˆYH˜ØËYX[ÙË[ÜšYÚ[ˆÜÜ[Ù]‚ˆÙ]‚ˆÛ\ÜÏH˜ØËYX[ÙË[›İ\ÈˆYH˜ØËYX[ÙË\›ØÙ\ÜÈÜ‚ˆÛ\ÜÏH˜ØËYX[ÙË[›İ\ÈˆYH˜ØËYX[ÙË[›İHÜ‚ˆHÛ\ÜÏH˜ØËYX[ÙËXİHˆYH˜ØËYX[ÙËXİHˆ™YH™^\šY[˜ÙKš[‚ˆÜ[ˆYH˜ØËYX[ÙËXİK[X™[‘^Ü™HÛÜšÜÚÜÏÜÜ[‚ˆÜ[ˆÛ\ÜÏH›X]\šX[\Ş[X›ÛË[İ][™Yˆ\šXKZY[HYH˜\œ›İ×Ù›ÜØ\™ÜÜ[‚ˆØO‚ˆ]ˆÛ\ÜÏH˜ØËYX[ÙË[˜]ˆˆ\šXK[X™[Hœ›İÜÙH\Y˜XİÈ‚ˆ]ÛˆÛ\ÜÏH˜ØË[˜]‹X]Ûˆˆ\OH˜]ÛˆˆYH˜ØËYX[ÙË\™]ˆˆ\šXK[X™[H”™]š[İ\È\Y˜Xİ‚ˆÜ[ˆÛ\ÜÏH›X]\šX[\Ş[X›ÛË[İ][™Yˆ\šXKZY[HYH˜\œ›İ×Ø˜XÚÏÜÜ[ˆ™]š[İ\ÂˆØ]Û‚ˆÜ[ˆÛ\ÜÏH˜ØËYX[ÙËY^YXœ›İÈˆYH˜ØËYX[ÙËXÛİ[ˆ\šXK[]™OHœÛ]HÜÜ[‚ˆ]ÛˆÛ\ÜÏH˜ØË[˜]‹X]Ûˆˆ\OH˜]ÛˆˆYH˜ØËYX[ÙË[™^ˆ\šXK[X™[H“™^\Y˜Xİ‚ˆ™^Ü[ˆÛ\ÜÏH›X]\šX[\Ş[X›ÛË[İ][™Yˆ\šXKZY[HYH˜\œ›İ×Ù›ÜØ\™ÜÜ[‚ˆØ]Û‚ˆÙ]‚ˆÙ]‚ˆÜÙXİ[Û˜ÂˆØİ[Y[˜›ÙK˜\[™Ú[
-˜XÚÙ›Ü
-NÂˆÛÛœİX[ÙÈH˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	Ë˜ØËYX[ÙÉÊNÂˆÛÛœİÛÜÙP]ÛˆH˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	Ë˜ØËYX[ÙËXÛÜÙIÊNÂˆÛÛœİš[X\HH˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	ÈØØËYX[ÙËXİIÊNÂˆ]Xİ]™R[™^HÂˆ]\İ›Øİ\ÙYH[Â‚ˆÛÛœİÙ]^H
-Y˜[YJHOˆÂˆÛÛœİ›ÙHH˜XÚÙ›Üœ]Y\TÙ[XİÜŠÉÚYX
-NÂˆYˆ
-›ÙJH›ÙK^ÛÛ[H˜[YH	ÉÎÂˆNÂˆÛÛœİ\]Q]Z[ÈH
-[™^
-HOˆÂˆXİ]™R[™^H
-[™^
-ÈØ\™Ë›[™İ
-H	HØ\™Ë›[™İÂˆÛÛœİØ\™HØ\™ÖØXİ]™R[™^NÂˆÛÛœİ]HH^˜VØØ\™™]\Ù]˜ÛÜ›™\ÜĞ\Y˜XİNÂˆYˆ
-Y]JH™]\›ÂˆÛÛœİİÈHØ\™œ]Y\TÙ[XİÜŠ	Ë˜ÛÜ›™\ÜËXÛÛXİ[Û‹]š\İX[[YÉÊNÂˆÛÛœİYÈHØ\™œ]Y\TÙ[XİÜŠ	ËœÜXÙK^KLWHˆÜ[‰ÊNÂˆÛÛœİ]HHØ\™œ]Y\TÙ[XİÜŠ	ÚÉÊNÂˆÛÛœİ\ØÜš\[ÛˆHØ\™œ]Y\TÙ[XİÜŠ	ËœÜXÙK^KLWHˆ	ÊNÂˆÛÛœİİ]\ÈHØ\™œ]Y\TÙ[XİÜŠ	Ë˜›Ü™\‹]İ›Û™ÉÊNÂˆÛÛœİYHØ\™œ]Y\TÙ[XİÜŠ	Ë˜›Ü™\‹]ˆÜ[›\İXÚ[	ÊNÂˆÛÛœİ\™ÙTİÈH˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	ÈØØËYX[ÙËZ[YÉÊNÂˆYˆ
-İÈ	‰ˆ\™ÙTİÊHÂˆ\™ÙTİËœÜ˜ÈHİË˜İ\œ™[Ü˜ÈİËœÜ˜ÎÂˆ\™ÙTİË˜[HİË˜[
-]OË^ÛÛ[š[J
-H	ĞÓÔ“‘TÔÈ\Y˜Xİ	ÊNÂˆBˆÙ]^
-	ØØËYX[ÙËZÚXÚÙ\‰ËYÏË^ÛÛ[š[J
-JNÂˆÙ]^
-	ØØËYX[ÙË]]IË]OË^ÛÛ[š[J
-JNÂˆÙ]^
-	ØØËYX[ÙËY\ØÜš\[Û‰Ë\ØÜš\[ÛË^ÛÛ[š[J
-JNÂˆÙ]^
-	ØØËYX[ÙËZY	ËYË^ÛÛ[š[J
-JNÂˆÙ]^
-	ØØËYX[ÙË\İ]\ÉËİ]\ÏË^ÛÛ[š[J
-JNÂˆÙ]^
-	ØØËYX[ÙË[X]\šX[	Ë]K›X]\šX[
-NÂˆÙ]^
-	ØØËYX[ÙË[ÜšYÚ[‰Ë]K›ÜšYÚ[ŠNÂˆÙ]^
-	ØØËYX[ÙË\›ØÙ\ÜÉË]Kœ›ØÙ\ÜÊNÂˆÙ]^
-	ØØËYX[ÙË[›İIË]K››İJNÂˆÙ]^
-	ØØËYX[ÙËXÛİ[	Ë	ØXİ]™R[™^
-È_HÈ	ØØ\™Ë›[™İX
-NÂˆÙ]^
-	ØØËYX[ÙËXİK[X™[	Ë]K˜Xİ[Û“X™[
-NÂˆš[X\Kš™YˆH]K˜Xİ[Û•\HOOH	ÌÙ	ÈÈ	ÈØÛÜ›™\ÜËLÙ]šY]Ù\‰Èˆ]K˜Xİ[Û’™YÂˆš[X\K™]\Ù]˜Xİ[ÛˆH]K˜Xİ[Û•\H	Û[šÉÎÂˆX[ÙËœØÜ›ÛÜHÂˆNÂ‚ˆ[˜İ[ÛˆÜ[‘]Z[Ê[™^
-HÂˆ\İ›Øİ\ÙYHØİ[Y[˜Xİ]™Q[[Y[Âˆ\]Q]Z[Ê[™^
-NÂˆ˜XÚÙ›ÜšY[ˆH˜[ÙNÂˆØİ[Y[˜›ÙK˜Û\ÜÓ\İ˜Y
-	ØÛÜ›™\ÜËXÛÛXİ[Û‹YX[ÙË[Ü[‰ÊNÂˆÛÜÙP]Û‹™›Øİ\Ê
-NÂˆBˆ[˜İ[ÛˆÛÜÙQ]Z[Ê
-HÂˆYˆ
-˜XÚÙ›ÜšY[ŠH™]\›Âˆ˜XÚÙ›ÜšY[ˆHYNÂˆØİ[Y[˜›ÙK˜Û\ÜÓ\İœ™[[İ™J	ØÛÜ›™\ÜËXÛÛXİ[Û‹YX[ÙË[Ü[‰ÊNÂˆYˆ
-\İ›Øİ\ÙY	‰ˆ\İ›Øİ\ÙYš\ĞÛÛ›™XİY	‰ˆ\[Ùˆ\İ›Øİ\ÙY™›Øİ\ÈOOH	Ù[˜İ[Û‰ÊHÂˆ\İ›Øİ\ÙY™›Øİ\ÊÈ™]™[ØÜ›ÛˆYHJNÂˆBˆBˆØ\™Ë™›Ü‘XXÚ
+  const extra = {
+    coaster: {
+      origin: 'Xuan Phu, Dong Nai',
+      material: '86 g of reclaimed corn cobs',
+      process: 'Pressed composite with heritage-inspired motifs',
+      note: 'The existing 3D model on this page can be rotated and flipped to explore the coaster from both sides.',
+      actionLabel: 'Explore Coaster in 3D', actionType: '3d'
+    },
+    journal: {
+      origin: 'CORNESS Workshop #02',
+      material: '120 g of corn-fiber paper',
+      process: 'Unbleached paper and hand-sewn hemp-thread binding',
+      note: 'This archived creation is displayed as part of Minhâ€™s collection. Explore the workshops to learn more about handmade upcycled craft.',
+      actionLabel: 'Explore Workshops', actionHref: 'experience.html'
+    },
+    lamp: {
+      origin: 'Limited bespoke edition',
+      material: 'Layered corn-husk membranes',
+      process: 'Hand-layered translucent lampshade',
+      note: 'The collection currently shows this lamp as in production (80%). This is the saved collection status, not a live production feed.',
+      actionLabel: 'Explore the Shop', actionHref: 'shop.html'
+    }
+  };
 
-Ø\™[™^
-HOˆÂˆØ\™˜Y]™[\İ[™\Š	ØÛXÚÉË
+  const backdrop = document.createElement('div');
+  backdrop.id = 'corness-collection-lightbox';
+  backdrop.hidden = true;
+  backdrop.innerHTML = `
+    <section class="cc-dialog" role="dialog" aria-modal="true" aria-labelledby="cc-dialog-title" aria-describedby="cc-dialog-description">
+      <button class="cc-dialog-close" type="button" aria-label="Close artifact details" title="Close">
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+      <div class="cc-dialog-media"><img id="cc-dialog-img" alt="" /></div>
+      <div class="cc-dialog-body">
+        <p class="cc-dialog-eyebrow" id="cc-dialog-kicker"></p>
+        <h2 class="cc-dialog-title" id="cc-dialog-title"></h2>
+        <p class="cc-dialog-description" id="cc-dialog-description"></p>
+        <div class="cc-facts">
+          <div class="cc-fact"><span class="cc-fact-label">Artifact ID</span><span class="cc-fact-value" id="cc-dialog-id"></span></div>
+          <div class="cc-fact"><span class="cc-fact-label">Collection status</span><span class="cc-fact-value" id="cc-dialog-status"></span></div>
+          <div class="cc-fact"><span class="cc-fact-label">Material</span><span class="cc-fact-value" id="cc-dialog-material"></span></div>
+          <div class="cc-fact"><span class="cc-fact-label">Origin / Edition</span><span class="cc-fact-value" id="cc-dialog-origin"></span></div>
+        </div>
+        <p class="cc-dialog-notes" id="cc-dialog-process"></p>
+        <p class="cc-dialog-notes" id="cc-dialog-note"></p>
+        <a class="cc-dialog-cta" id="cc-dialog-cta" href="experience.html">
+          <span id="cc-dialog-cta-label">Explore Workshops</span>
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+        <div class="cc-dialog-nav" aria-label="Browse artifacts">
+          <button class="cc-nav-button" type="button" id="cc-dialog-prev" aria-label="Previous artifact">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> Previous
+          </button>
+          <span class="cc-dialog-eyebrow" id="cc-dialog-count" aria-live="polite"></span>
+          <button class="cc-nav-button" type="button" id="cc-dialog-next" aria-label="Next artifact">
+            Next <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>`;
+  document.body.appendChild(backdrop);
+  const dialog = backdrop.querySelector('.cc-dialog');
+  const closeButton = backdrop.querySelector('.cc-dialog-close');
+  const primary = backdrop.querySelector('#cc-dialog-cta');
+  let activeIndex = 0;
+  let lastFocused = null;
 
-HOˆÜ[‘]Z[Ê[™^
-JNÂˆØ\™˜Y]™[\İ[™\Š	ÚÙ^YİÛ‰Ë
-]™[
-HOˆÂˆYˆ
-]™[šÙ^HOOH	Ñ[\‰È]™[šÙ^HOOH	È	ÊHÂˆ]™[œ™]™[Y˜][
+  const setText = (id, value) => {
+    const node = backdrop.querySelector(`#${id}`);
+    if (node) node.textContent = value || '';
+  };
+  const updateDetails = (index) => {
+    activeIndex = (index + cards.length) % cards.length;
+    const card = cards[activeIndex];
+    const data = extra[card.dataset.cornessArtifact];
+    if (!data) return;
+    const photo = card.querySelector('.corness-collection-visual img');
+    const tag = card.querySelector('.space-y-1\\.5 > span');
+    const title = card.querySelector('h3');
+    const description = card.querySelector('.space-y-1\\.5 > p');
+    const status = card.querySelector('.border-t strong');
+    const id = card.querySelector('.border-t > span:last-child');
+    const largePhoto = backdrop.querySelector('#cc-dialog-img');
+    if (photo && largePhoto) {
+      largePhoto.src = photo.currentSrc || photo.src;
+      largePhoto.alt = photo.alt || (title?.textContent.trim() || 'CORNESS artifact');
+    }
+    setText('cc-dialog-kicker', tag?.textContent.trim());
+    setText('cc-dialog-title', title?.textContent.trim());
+    setText('cc-dialog-description', description?.textContent.trim());
+    setText('cc-dialog-id', id?.textContent.trim());
+    setText('cc-dialog-status', status?.textContent.trim());
+    setText('cc-dialog-material', data.material);
+    setText('cc-dialog-origin', data.origin);
+    setText('cc-dialog-process', data.process);
+    setText('cc-dialog-note', data.note);
+    setText('cc-dialog-count', `${activeIndex + 1} / ${cards.length}`);
+    setText('cc-dialog-cta-label', data.actionLabel);
+    primary.href = data.actionType === '3d' ? '#corness-3d-viewer' : data.actionHref;
+    primary.dataset.action = data.actionType || 'link';
+    dialog.scrollTop = 0;
+  };
 
-NÂˆÜ[‘]Z[Ê[™^
-NÂˆBˆJNÂˆJNÂˆÛÜÙP]Û‹˜Y]™[\İ[™\Š	ØÛXÚÉËÛÜÙQ]Z[ÊNÂˆ˜XÚÙ›Ü˜Y]™[\İ[™\Š	ØÛXÚÉË
-]™[
-HOˆÂˆYˆ
-]™[\™Ù]OOH˜XÚÙ›Ü
-HÛÜÙQ]Z[Ê
-NÂˆJNÂˆ˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	ÈØØËYX[ÙË\™]‰ÊK˜Y]™[\İ[™\Š	ØÛXÚÉË
-
-HOˆ\]Q]Z[ÊXİ]™R[™^HJJNÂˆ˜XÚÙ›Üœ]Y\TÙ[XİÜŠ	ÈØØËYX[ÙË[™^	ÊK˜Y]™[\İ[™\Š	ØÛXÚÉË
-
-HOˆ\]Q]Z[ÊXİ]™R[™^
-ÈJJNÂˆš[X\K˜Y]™[\İ[™\Š	ØÛXÚÉË
-]™[
-HOˆÂˆYˆ
-š[X\K™]\Ù]˜Xİ[ÛˆOOH	ÌÙ	ÊH™]\›Âˆ]™[œ™]™[Y˜][
-
-NÂˆÛÜÙQ]Z[Ê
-NÂˆÛÛœİšY]Ù\ˆHØİ[Y[™Ù][[Y[RY
-	İ™YZœËXÛÛZ[™\‹PS’SPUSÓ—ÌŒ	ÊNÂˆYˆ
-šY]Ù\ŠHÂˆšY]Ù\‹œØÜ›Û[ÕšY]ÊÈ›ØÚÎˆ	ØÙ[\‰Ë™Z]š[Üˆ	ÜÛ[Ûİ	ÈJNÂˆYˆ
-\[ÙˆÚ[™İË˜ÛÜ›™\ÜÑ\ÚİÜ™\Ù]OOH	Ù[˜İ[Û‰ÊHÚ[™İË˜ÛÜ›™\ÜÑ\ÚİÜ™\Ù]
-
-NÂˆH[ÙHÂˆËÈXİX[šY]Ù\ˆ\È›İØYYˆ\ÙHHÛ‹\YÙH›ÙXİ]Z[È[œİXY‚ˆØİ[Y[™Ù][[Y[RY
-	Ø\Y˜Xİ\\ÜÜÜ	ÊOËœØÜ›Û[ÕšY]ÊØ™Z]š[Ü‰ÜÛ[Ûİ	ßJNÂˆBˆJNÂˆØİ[Y[˜Y]™[\İ[™\Š	ÚÙ^YİÛ‰Ë
-]™[
-HOˆÂˆYˆ
-˜XÚÙ›ÜšY[ŠH™]\›ÂˆYˆ
-]™[šÙ^HOOH	Ñ\ØØ\IÊHÂˆ]™[œ™]™[Y˜][
-
-NÂˆÛÜÙQ]Z[Ê
-NÂˆH[ÙHYˆ
-]™[šÙ^HOOH	Ğ\œ›İÔšYÚ	ÊHÂˆ]™[œ™]™[Y˜][
-
-NÂˆ\]Q]Z[ÊXİ]™R[™^
-ÈJNÂˆH[ÙHYˆ
-]™[šÙ^HOOH	Ğ\œ›İÓY	ÊHÂˆ]™[œ™]™[Y˜][
-
-NÂˆ\]Q]Z[ÊXİ]™R[™^HJNÂˆH[ÙHYˆ
-]™[šÙ^HOOH	ÕX‰ÊHÂˆÛÛœİ›Øİ\ØX›\ÈHË‹‹™X[ÙËœ]Y\TÙ[XİÜ[
-	Ø]Û››İ
-Ù\ØX›YJKVÚ™Y—IÊWNÂˆYˆ
-Y›Øİ\ØX›\Ë›[™İ
-H™]\›ÂˆÛÛœİš\œİH›Øİ\ØX›\ÖÌK\İH›Øİ\ØX›\ÖÙ›Øİ\ØX›\Ë›[™İHWNÂˆYˆ
-]™[œÚYÙ^H	‰ˆØİ[Y[˜Xİ]™Q[[Y[OOHš\œİ
-HÂˆ]™[œ™]™[Y˜][
-
-NÈ\İ™›Øİ\Ê
-NÂˆH[ÙHYˆ
-Y]™[œÚYÙ^H	‰ˆØİ[Y[˜Xİ]™Q[[Y[OOH\İ
-HÂˆ]™[œ™]™[Y˜][
-
-NÈš\œİ™›Øİ\Ê
-NÂˆBˆBˆJNÂŸJJ
-NÂ
+  function openDetails(index) {
+    lastFocused = document.activeElement;
+    updateDetails(index);
+    backdrop.hidden = false;
+    document.body.classList.add('corness-collection-dialog-open');
+    closeButton.focus();
+  }
+  function closeDetails() {
+    if (backdrop.hidden) return;
+    backdrop.hidden = true;
+    document.body.classList.remove('corness-collection-dialog-open');
+    if (lastFocused && lastFocused.isConnected && typeof lastFocused.focus === 'function') {
+      lastFocused.focus({ preventScroll: true });
+    }
+  }
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => openDetails(index));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDetails(index);
+      }
+    });
+  });
+  closeButton.addEventListener('click', closeDetails);
+  backdrop.addEventListener('click', (event) => {
+    if (event.target === backdrop) closeDetails();
+  });
+  backdrop.querySelector('#cc-dialog-prev').addEventListener('click', () => updateDetails(activeIndex - 1));
+  backdrop.querySelector('#cc-dialog-next').addEventListener('click', () => updateDetails(activeIndex + 1));
+  primary.addEventListener('click', (event) => {
+    if (primary.dataset.action !== '3d') return;
+    event.preventDefault();
+    closeDetails();
+    const viewer = document.getElementById('threejs-container-ANIMATION_260');
+    if (viewer) {
+      viewer.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      if (typeof window.cornessDesktopReset === 'function') window.cornessDesktopReset();
+    } else {
+      // Actual viewer is not loaded: use the on-page product details instead.
+      document.getElementById('artifact-passport')?.scrollIntoView({behavior:'smooth'});
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (backdrop.hidden) return;
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeDetails();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      updateDetails(activeIndex + 1);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      updateDetails(activeIndex - 1);
+    } else if (event.key === 'Tab') {
+      const focusables = [...dialog.querySelectorAll('button:not([disabled]),a[href]')];
+      if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus();
+      }
+    }
+  });
+})();

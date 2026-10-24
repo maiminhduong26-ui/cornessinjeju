@@ -1,7 +1,5 @@
-YªçŠx³¬uç%j·Â+ar‰ì¶ë•ë_¢ºÞjË"‚v›•ëÚ®&›•ë
-
-
-HOˆÂˆØÝ[Y[™ØÝ[Y[[[Y[›[™ÈH™[ˆŽÂˆÚ[™ÝËÓÔ“‘TÔ×ÓS‘ÕPQÑHH™[ˆŽÂˆÚ[™ÝË™\Ü]Ú]™[
-™]ÈÝ\ÝÛQ]™[
-˜ÛÜ›™\ÜÎ›[™ÝXYÙXÚ[™ÙH‹Ù]Z[ˆÛ[™Îˆ™[ˆŸ_JJNÂŸJJ
-NÂ
+(() => {
+  document.documentElement.lang = "en";
+  window.CORNESS_LANGUAGE = "en";
+  window.dispatchEvent(new CustomEvent("corness:languagechange", {detail: {lang: "en"}}));
+})();
