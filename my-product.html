@@ -979,7 +979,7 @@ function createFrontTexture() {
 
                           let isDragging = false;
                           let prevMousePos = { x: 0, y: 0 };
-                          let autoRotate = true;
+                          let autoRotate = !isMobileView;
                           let velocityX = 0;
                           let velocityY = 0;
                           let targetZoom = isMobileView ? 4.4 : 4.8;
