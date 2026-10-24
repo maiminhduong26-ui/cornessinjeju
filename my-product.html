@@ -475,6 +475,19 @@ colors: {
     #corness-heritage-collection .corness-collection-quickview{transition:none;}
   }
 </style>
+<style>
+@media (max-width: 767px) {
+  .coaster-mobile-frame { width: min(86vw, 360px) !important; }
+  #coasterObject { height: min(86vw, 360px) !important; padding: 0 !important; }
+  #coasterObject > div:first-child,
+  #threejs-container-ANIMATION_260 { height: 100% !important; }
+  #threejs-container-ANIMATION_260 canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+</style>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
 <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(112,88,66,0.06)]">
@@ -567,7 +580,7 @@ colors: {
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- Visual Column (Coaster Showcase with Interactive Angle Simulation) -->
 <div class="lg:col-span-6 flex flex-col items-center justify-center relative">
-<div class="relative group cursor-grab active:cursor-grabbing w-72 sm:w-96 lg:w-[420px] aspect-square flex items-center justify-center">
+<div class="relative group cursor-grab active:cursor-grabbing w-72 sm:w-96 lg:w-[420px] aspect-square flex items-center justify-center coaster-mobile-frame">
 <!-- Subtle Radial Halo for physical depth -->
 <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-secondary-container/20 to-transparent blur-xl"></div>
 <!-- Coaster Artifact Main Image / Three.js 3D Viewer -->
@@ -586,6 +599,7 @@ colors: {
                           const height = container.clientHeight || 420;
 
                           const scene = new THREE.Scene();
+                          const isMobileView = window.matchMedia("(max-width: 767px)").matches;
                           const camera = new THREE.PerspectiveCamera(
                             34,
                             width / height,
@@ -593,7 +607,7 @@ colors: {
                             100,
                           );
                           // Camera elevation and distance adjusted for refined compact coaster
-                          camera.position.set(0, 1.35, 4.8);
+                          camera.position.set(0, isMobileView ? 1.19 : 1.35, isMobileView ? 4.4 : 4.8);
                           camera.lookAt(0, 0, 0);
 
                           const renderer = new THREE.WebGLRenderer({
@@ -920,8 +934,8 @@ function createFrontTexture() {
                           );
                           const coasterMesh = new THREE.Mesh(coasterGeo, [
                             sideMat,
-                            backMat,
-                            frontMat,
+                            isMobileView ? frontMat : backMat,
+                            isMobileView ? backMat : frontMat,
                           ]);
                           coasterMesh.castShadow = true;
                           coasterGroup.add(coasterMesh);
@@ -968,8 +982,8 @@ function createFrontTexture() {
                           let autoRotate = true;
                           let velocityX = 0;
                           let velocityY = 0;
-                          let targetZoom = 4.8;
-                          let currentZoom = 4.8;
+                          let targetZoom = isMobileView ? 4.4 : 4.8;
+                          let currentZoom = isMobileView ? 4.4 : 4.8;
 
                           const onDown = (clientX, clientY) => {
                             isDragging = true;
@@ -1032,7 +1046,7 @@ function createFrontTexture() {
                           };
                           window.cornessDesktopReset = function () {
                             autoRotate = true;
-                            targetZoom = 4.8;
+                            targetZoom = isMobileView ? 4.4 : 4.8;
                             coasterGroup.rotation.x = 0.35;
                             coasterGroup.rotation.y = 0;
                           };
