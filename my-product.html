@@ -594,12 +594,12 @@ colors: {
                           const container = document.getElementById(
                             "threejs-container-ANIMATION_260",
                           );
+                          const isMobileView = window.matchMedia("(max-width: 767px)").matches;
                           const devicePixelRatio = window.devicePixelRatio || 1;
                           const width = container.clientWidth || 600;
                           const height = container.clientHeight || 420;
 
                           const scene = new THREE.Scene();
-                          const isMobileView = window.matchMedia("(max-width: 767px)").matches;
                           const camera = new THREE.PerspectiveCamera(
                             34,
                             width / height,
@@ -900,6 +900,9 @@ function createFrontTexture() {
                           }
 
                           const frontTex = createFrontTexture();
+                          frontTex.center.set(0.5, 0.5);
+                          frontTex.rotation = isMobileView ? Math.PI / 2 : 0;
+                          frontTex.needsUpdate = true;
                           const backTex = createBackTexture();
                           const sideTex = createSideTexture();
 
