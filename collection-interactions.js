@@ -13,24 +13,24 @@
 
   const extra = {
     coaster: {
-      origin: 'Xuan Phu, Dong Nai',
-      material: '86 g of reclaimed corn cobs',
-      process: 'Pressed composite with heritage-inspired motifs',
+      origin: 'Jeju Island, South Korea',
+      material: 'Candidate corn-cob and citrus-processing by-products; formulation to be tested',
+      process: 'Prototype concept with Jeju-inspired motifs; performance to be tested',
       note: 'The existing 3D model on this page can be rotated and flipped to explore the coaster from both sides.',
       actionLabel: 'Explore Coaster in 3D', actionType: '3d'
     },
     journal: {
-      origin: 'CORNESS Workshop #02',
-      material: '120 g of corn-fiber paper',
+      origin: 'Future Jeju workshop • proposed',
+      material: 'Prepared materials and instructions • proposed DIY kit',
       process: 'Unbleached paper and hand-sewn hemp-thread binding',
-      note: 'This archived creation is displayed as part of Minh’s collection. Explore the workshops to learn more about handmade upcycled craft.',
+      note: 'This item is a concept in the proposed CORNESS Jeju workshop collection; material feasibility and customer interest remain to be validated.',
       actionLabel: 'Explore Workshops', actionHref: 'experience.html'
     },
     lamp: {
       origin: 'Limited bespoke edition',
       material: 'Layered corn-husk membranes',
       process: 'Hand-layered translucent lampshade',
-      note: 'The collection currently shows this lamp as in production (80%). This is the saved collection status, not a live production feed.',
+      note: 'This is a product direction for exploration. Material sourcing, production feasibility and demand have not yet been validated.',
       actionLabel: 'Explore the Shop', actionHref: 'shop.html'
     }
   };
