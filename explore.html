@@ -391,7 +391,7 @@ colors: {
 </a>
 <button class="px-5 py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-2 shadow-sm" id="audioBtn" onclick="toggleAudioPreview()" type="button">
 <span class="material-symbols-outlined text-secondary text-[20px]" id="audioIcon">volume_up</span>
-<span id="audioText">Listen to the Cornfield Breeze (01:24)</span>
+<span id="audioText">Jeju Agriculture & Circular Design • concept</span>
 </button>
 </div>
 </div>
@@ -411,7 +411,7 @@ colors: {
 <div class="flex items-center justify-between">
 <div>
 <p class="font-label text-xs uppercase tracking-wider text-secondary font-bold">
-                          Field Notes • 07:15 AM
+                          Field Notes • Field note • illustrative
                         </p>
 <p class="font-label text-sm text-on-surface font-medium">
                           Sunrise filtering through F1 hybrid corn leaves on the red-soil hills
@@ -965,28 +965,16 @@ colors: {
         // Interactive Map Station Selector Data
         const stationData = {
           1: {
-            name: "Hamlet 2, Xuan Phu &bull; 180 Hectares",
-            desc: "The main collection area for corn grains and cobs in Xuan Loc District. The summer–autumn harvest has just ended.",
-            dist: "Distance to workshop: 3.2 km",
-            moist: "Soil moisture: 24%",
+            name: "Potential Jeju corn sources • to be confirmed", desc: "Identify local farms and confirm by-product availability, handling and collection costs with suppliers.", dist: "Distance • to be confirmed", moist: "Material moisture • to be tested",
           },
           2: {
-            name: "Bamboo-Rack Solar Drying Station",
-            desc: "A naturally ventilated drying system that takes advantage of 300 sunny days per year in Dong Nai and targets 11.5% moisture.",
-            dist: "Distance from farm: 1.1 km",
-            moist: "Drying temperature: 38°C",
+            name: "Material preparation partner • to be confirmed", desc: "Test cleaning, drying, grinding, sieving and storage requirements for candidate residues.", dist: "Partner location • to be confirmed", moist: "Moisture target • to be tested",
           },
           3: {
-            name: "Ba Thien Blue-Glazed Craft Workshop",
-            desc: "Artisans add traditional Dong Nai glazed-ceramic motifs to pressed corn-cob composite coasters.",
-            dist: "Heart of the craft village",
-            moist: "Output: 200 pieces per day",
+            name: "Local workshop host • to be identified", desc: "Explore a visitor-led coaster activity after local partners and a tested prototype are in place.", dist: "Jeju venue • to be confirmed", moist: "Pilot capacity • to be set",
           },
           4: {
-            name: "CORNESS Experience Center",
-            desc: "An exhibition and coaster-making workshop space with an AI kiosk that preserves local agricultural stories.",
-            dist: "Frontage on National Highway 1A",
-            moist: "Hours: 08:00–18:00",
+            name: "Potential visitor venue • to be identified", desc: "A future workshop could share verified Jeju agriculture information and a QR Product Passport.", dist: "Access • to be confirmed", moist: "Schedule • to be confirmed",
           },
         };
 
@@ -1021,16 +1009,11 @@ colors: {
 
           if (textEl) textEl.textContent = count + " pieces";
 
-          // Formulas based on 1 coaster = ~0.5kg raw corncob saved, 0.75kg CO2e avoided, ~25,000 VND direct community value
-          const co2Val = (count * 0.75).toFixed(1);
-          const biomassVal = (count * 0.5).toFixed(1);
-          const incomeVal = ((count * 25000) / 1000000).toFixed(2);
-          const treeVal = (count * 0.036).toFixed(1);
-
-          if (co2El) co2El.textContent = co2Val;
-          if (biomassEl) biomassEl.textContent = biomassVal;
-          if (incomeEl) incomeEl.textContent = incomeVal;
-          if (treeEl) treeEl.textContent = treeVal;
+          // The pilot has no verified per-product impact factors yet.
+          if (co2El) co2El.textContent = "To be measured";
+          if (biomassEl) biomassEl.textContent = "To be measured";
+          if (incomeEl) incomeEl.textContent = "To be measured";
+          if (treeEl) treeEl.textContent = "Not calculated";
         }
 
         // Audio Toggle Micro-interaction
@@ -1041,10 +1024,10 @@ colors: {
           const text = document.getElementById("audioText");
           if (isPlayingAudio) {
             if (icon) icon.textContent = "pause_circle";
-            if (text) text.textContent = "Now playing: Xuan Phu Cornfield Breeze...";
+            if (text) text.textContent = "Jeju audio guide concept • narration planned";
           } else {
             if (icon) icon.textContent = "volume_up";
-            if (text) text.textContent = "Listen to the Cornfield Breeze (01:24)";
+            if (text) text.textContent = "Jeju Agriculture & Circular Design • concept";
           }
         }
       </script>
@@ -1060,7 +1043,7 @@ colors: {
               From Waste to Value • Jeju Agritourism & Circular Design
             </p>
 <p class="font-label text-sm text-on-surface-variant max-w-md leading-relaxed">
-              A sustainable craft ecosystem that transforms discarded corn husks from Jeju Island, South Korea into creations inspired by Jeju agricultural identity, connecting traditional artisans with pioneering cultural AI technology.
+              CORNESS explores whether selected Jeju corn-cob and citrus-processing by-products can become a visitor-made souvenir through a locally led workshop.
             </p>
 <div class="flex items-center gap-3 pt-2">
 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-label font-semibold text-primary"><span class="material-symbols-outlined text-[14px]">verified</span>Certification • to be confirmed</span><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-[11px] font-label font-semibold text-tertiary"><span class="material-symbols-outlined text-[14px]">nest_eco_leaf</span>Candidate materials • quantity to be measured</span>
