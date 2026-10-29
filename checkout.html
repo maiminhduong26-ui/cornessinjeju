@@ -709,7 +709,7 @@ colors: {
 <span class="text-on-surface font-medium">Local partner compensation • to be agreed</span>
 <span class="material-symbols-outlined text-[15px] text-primary" title="10% of the ticket price directly supports Jeju farmers">eco</span>
 </div>
-<span class="font-body text-sm text-primary font-semibold">+VND 70,000
+<span class="font-body text-sm text-primary font-semibold">Potential local benefit • to be assessed
                       <span class="text-[11px] font-label text-outline">(Included)</span></span>
 </div>
 <div class="flex items-center justify-between">
@@ -731,7 +731,7 @@ colors: {
 <div class="p-3 rounded-xl bg-surface-container-low flex items-center gap-2">
 <div class="relative flex-1">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-outline">sell</span>
-<input class="w-full pl-8 pr-3 py-2 rounded-lg bg-surface-container-lowest font-label text-xs uppercase tracking-wider font-semibold text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" id="coupon-input" type="text" value="XUANPHU2026"/>
+<input class="w-full pl-8 pr-3 py-2 rounded-lg bg-surface-container-lowest font-label text-xs uppercase tracking-wider font-semibold text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" id="coupon-input" type="text" value="JEJUPILOT"/>
 </div>
 <button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label text-xs font-bold uppercase tracking-wider transition-colors shrink-0" id="apply-coupon-btn" type="button">
                     Applied
@@ -911,7 +911,7 @@ colors: {
                 couponBtn.classList.add("bg-primary", "text-on-primary");
                 isApplied = false;
               } else {
-                if (couponInput.value.trim().toUpperCase() === "XUANPHU2026") {
+                if (couponInput.value.trim().toUpperCase() === "JEJUPILOT") {
                   discountRow.classList.remove("hidden");
                   finalTotal.textContent = "650.000";
                   couponBtn.textContent = "Applied";
@@ -922,7 +922,7 @@ colors: {
                   );
                   isApplied = true;
                 } else {
-                  alert("Invalid promo code. Try XUANPHU2026.");
+                  alert("Invalid promo code. Try JEJUPILOT.");
                 }
               }
             });
